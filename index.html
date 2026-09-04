@@ -717,7 +717,11 @@ function copyOathText() {
 <section class="section" data-section="promotion">
   <h2>📈 Повышение в звании</h2>
   <p class="lead">Понятная инструкция для новичка без необъяснимых сокращений.</p>
-  <center><h2>Рядовой <span style="color: #2f4738;"><b>[1 ранг]</b></span> → Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span></h2></center>
+<!-- ============ 1 РАНГ → 2 РАНГ КМБ ============ -->
+  <div class="dept-divider" style="margin-top: 40px;">⚔ РМП</div>
+  <div class="dept-grid" id="fsvngDepartments"></div>
+  
+   <center><h2>Рядовой <span style="color: #2f4738;"><b>[1 ранг]</b></span> → Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span></h2></center>
   
   <ol>
     <li>
@@ -794,6 +798,104 @@ function copyOathText() {
     <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong>
   </li>
 </ol>
+
+
+  <div class="dept-divider">⚔ КМБ</div>
+  <div class="dept-grid" id="vsDepartments"></div>
+  <center><h2>Рядовой <span style="color: #2f4738;"><b>[1 ранг]</b></span> → Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span></h2></center>
+
+  <ol>
+    <li>
+      <strong>Физическая / Строевая подготовка</strong>
+      <ul>
+        <li class="lead">2 скрина: Начало и конец каждой тренировки</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Принятие воинской присяги</strong>
+      <ul>
+        <li class="lead">Каждый день на усмотрение Командиров/Начальников</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Несение службы на КПП</strong>
+      <ul>
+        <li class="lead">КПП №1 — 30 минут</li>
+        <li class="lead">КПП №2 — 30 минут</li>
+        <li class="lead" style="list-style: none; margin-left: 20px;">Доклад каждый 10 минут (Начало, 10/20/30 минут, конец — 5 скринов)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>RP-задание</strong>
+      <ul>
+        <li class="lead">Покрасить траву</li>
+        <li class="lead">Помыть автомобиль</li>
+        <li class="lead">Помыть окна и т.д.</li>
+        <li class="lead" style="list-style: none; margin-top: 8px;">Выполнить RP-задание через <code style="background: #1e2f24; padding: 2px 8px; border-radius: 4px; color: #6aa878;">/me /do /try</code></li>
+      </ul>
+      <div style="background: #0e1411; border: 1px solid #2b4632; border-radius: 8px; padding: 12px 16px; margin-top: 8px; font-size: 14px; line-height: 1.7;">
+        <span style="color: #6aa878; font-weight: bold;">Пример отыгровок:</span><br>
+        <code style="color: #b6a15b;">/me взял лейку</code><br>
+        <code style="color: #b6a15b;">/me набрал воды</code><br>
+        <code style="color: #b6a15b;">/do Лейка наполнена водой.</code><br>
+        <code style="color: #b6a15b;">/me начал поливать цветы</code><br>
+        <code style="color: #b6a15b;">/try проверил достаточно ли влажная почва</code><br>
+        <span style="color: #6aa878;">Удачно:</span> <code style="color: #6aa878;">/do Цветы политы. Конец</code><br>
+        <span style="color: #e8465b;">Неудачно:</span> <code style="color: #e8465b;">/do Земля сухая. Поливаем снова</code>
+      </div>
+    </li>
+
+    <li>
+      <strong>Удостоверение</strong>
+      <ul>
+        <li class="lead">Скриншот удостоверения</li>
+      </ul>
+    </li>
+  </ol>
+
+  <br><br>
+
+  <!-- ============ 2 РАНГ → 3 РАНГ КМБ============ -->
+  <center><h2>Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span> → Младший сержант <span style="color: #2f4738;"><b>[3 ранг]</b></span></h2></center>
+
+  <ol>
+    <li>
+      <strong>Несение службы на КПП и Вышка</strong>
+      <ul>
+        <li class="lead">КПП №1 — 30 минут</li>
+        <li class="lead">КПП №2 — 30 минут</li>
+        <li class="lead">Вышка №1-8 (На выбор) — 30 минут</li>
+        <li class="lead" style="list-style: none; margin-left: 20px;">Доклад каждый 10 минут (Начало, 10/20/30 минут, конец — 5 скринов)</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>RP-задание — 2 шт.</strong>
+      <ul>
+        <li class="lead">Покрасить траву</li>
+        <li class="lead">Помыть автомобиль</li>
+        <li class="lead">Помыть окна и т.д.</li>
+        <li class="lead" style="list-style: none; margin-top: 8px;">Выполнить RP-задание через <code style="background: #1e2f24; padding: 2px 8px; border-radius: 4px; color: #6aa878;">/me /do /try</code></li>
+      </ul>
+      <div style="background: #0e1411; border: 1px solid #2b4632; border-radius: 8px; padding: 12px 16px; margin-top: 8px; font-size: 14px; line-height: 1.7;">
+        <span style="color: #6aa878; font-weight: bold;">Пример отыгровок:</span><br>
+        <code style="color: #b6a15b;">/me взял лейку</code><br>
+        <code style="color: #b6a15b;">/me набрал воды</code><br>
+        <code style="color: #b6a15b;">/do Лейка наполнена водой.</code><br>
+        <code style="color: #b6a15b;">/me начал поливать цветы</code><br>
+        <code style="color: #b6a15b;">/try проверил достаточно ли влажная почва</code><br>
+        <span style="color: #6aa878;">Удачно:</span> <code style="color: #6aa878;">/do Цветы политы. Конец</code><br>
+        <span style="color: #e8465b;">Неудачно:</span> <code style="color: #e8465b;">/do Земля сухая. Поливаем снова</code>
+      </div>
+    </li>
+
+    <li>
+      <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong>
+    </li>
+  </ol>
 </section>
 
  <section class="section" data-section="dictionary">
