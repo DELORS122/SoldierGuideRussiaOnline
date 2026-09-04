@@ -144,6 +144,87 @@ footer{
  footer{padding:25px 20px;flex-direction:column;align-items:flex-start}
 }
 @media(max-width:480px){.rank-grid{grid-template-columns:1fr}}
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 20px;
+}
+.dept-card {
+  background: linear-gradient(145deg, #121a15, #0e1411);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: .2s transform, .2s border-color;
+  box-shadow: var(--shadow);
+}
+.dept-card:hover {
+  transform: translateY(-4px);
+  border-color: #4e775a;
+}
+.dept-img {
+  height: 170px;
+  background: #0b110e;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.dept-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dept-img .placeholder {
+  color: #65736a;
+  font-size: 13px;
+  text-align: center;
+  padding: 10px;
+}
+.dept-img .placeholder strong {
+  display: block;
+  color: #9aa69e;
+  margin-bottom: 4px;
+}
+.dept-body {
+  padding: 16px 18px 18px;
+}
+.dept-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 2px 12px;
+  border-radius: 20px;
+  background: #1e2f24;
+  color: var(--green2);
+  margin-bottom: 6px;
+}
+.dept-body h3 {
+  margin: 0 0 5px;
+  font-size: 19px;
+}
+.dept-body p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dept-divider {
+  text-align: center;
+  color: var(--green2);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 30px 0 10px;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 12px;
+}
+@media (max-width: 1000px) {
+  .dept-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -172,11 +253,13 @@ footer{
     <summary><span class="icon">★</span>Cостав и Ранги</summary>
     <div class="sub">
 	 <a href="#" data-page="senior">Старший состав</a>
-     <a href="#" data-page="ranks">Погоны и Ранги</a>
+	 <a href="#" data-page="Groups">Отделы</a>
+     <a href="#" data-page="ranks">Ранги</a>
     </div>
    </details>
 
-   <a href="#" data-page="guard"><span class="icon">◈</span>Караульная служба</a>
+   <a href="#" data-page="Prisaga"><span class="icon">✦️</span>Присяга</a>
+   <a href="#" data-page="guard"><span class="icon">◈</span>Караульная служба</a>   
    <a href="#" data-page="promotion"><span class="icon">↗</span>Повышение до 3 ранга</a>
    <a href="#" data-page="dictionary"><span class="icon">▤</span>Словарь для новичков</a>
  </nav>
@@ -217,6 +300,19 @@ footer{
   <p class="lead">Место для фотографий и информации о руководстве армии.</p>
   <div class="people-grid" id="peopleGrid"></div>
  </section>
+ 
+<!-- ОТДЕЛЫ -->
+<section class="section" data-section="Groups">
+  <h2>★ Отделы</h2>
+  <p class="lead">Подразделения Вооружённых Сил РФ и Федеральной службы войск национальной гвардии.</p>
+
+  <div class="dept-divider" style="margin-top: 40px;">🛡 ФЕДЕРАЛЬНАЯ СЛУЖБА ВОЙСК НАЦИОНАЛЬНОЙ ГВАРДИИ</div>
+  <div class="dept-grid" id="fsvngDepartments"></div>
+
+  <div class="dept-divider">⚔ ВООРУЖЁННЫЕ СИЛЫ РФ</div>
+  <div class="dept-grid" id="vsDepartments"></div>
+
+</section>
 
  <!-- УСТАВЫ -->
  <section class="section" data-section="ustav-vs">
@@ -295,7 +391,7 @@ footer{
       Устав утверждён: Командир части Вооружённых Сил Российской Федерации<br>
       Согласовано: Начальник Военной полиции, Начальник Штаба<br>
       Дата вступления в силу: 29.08.2026<br>
-      Всего статей: 8 (включая общие положения и порядок применения)
+      Всего статей: 99 (включая общие положения и порядок применения)
     </p>
 
   </div>
@@ -462,7 +558,7 @@ footer{
       Устав утверждён: Командир части Вооружённых Сил Российской Федерации<br>
       Согласовано: Начальник Военной полиции, Начальник Штаба<br>
       Дата вступления в силу: 29.08.2026<br>
-      Всего статей: 36 (включая общие положения и порядок применения)
+      Всего статей: 99 (включая общие положения и порядок применения)
     </p>
   
  </section>
@@ -470,6 +566,153 @@ footer{
  <section class="section" data-section="guard">
   <h2>🛡 Караульная служба</h2><p class="lead">Пошаговый гайд: подготовка → заступление → несение службы → смена поста.</p>
  </section>
+ 
+ <section class="section" data-section="Prisaga">
+  <h2>📜 Военная присяга</h2>
+  <p class="lead">Пошаговый гайд: О получение символа верности Родине.</p>
+  
+  
+  <!-- Окошко с текстом присяги для копирования -->
+<div style="margin-top: 20px; padding: 20px 25px; background: rgba(106, 168, 120, 0.08); border: 2px dashed #6aa878; border-radius: 8px; position: relative;">
+  
+  <!-- Заголовок -->
+  <p style="font-weight: bold; color: #6aa878; margin: 0 0 12px 0; font-size: 16px;">Текст Военной присяги:</p>
+  
+  <!-- Сам текст в отдельном блоке для копирования -->
+  <div id="oathText" style="background: #1a2e22;  padding: 18px 20px; border-radius: 6px; monospace; font-size: 20px; line-height: 1.8; margin-bottom: 15px; border: 1px solid #2f4738;">
+    Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.
+  </div>
+  
+  <!-- Кнопка копирования -->
+  <button onclick="copyOathText()" style="background: #6aa878; color: white; border: none; padding: 10px 25px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#5a9a68'" onmouseout="this.style.background='#6aa878'">
+    📋 Скопировать текст
+  </button>
+  
+  <!-- Сообщение об успешном копировании -->
+  <span id="copyMessage" style="display: none; margin-left: 15px; color: #6aa878; font-weight: bold; font-size: 14px;">✅ Текст скопирован!</span>
+  
+</div>
+
+<!-- Скрипт для копирования -->
+<script>
+function copyOathText() {
+  // Получаем текст из блока
+  var textElement = document.getElementById('oathText');
+  var textToCopy = textElement.innerText;
+  
+  // Создаём временный текстовый элемент
+  var tempInput = document.createElement('textarea');
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+  
+  // Выделяем и копируем
+  tempInput.select();
+  document.execCommand('copy');
+  
+  // Удаляем временный элемент
+  document.body.removeChild(tempInput);
+  
+  // Показываем сообщение
+  var message = document.getElementById('copyMessage');
+  message.style.display = 'inline';
+  
+  // Скрываем сообщение через 3 секунды
+  setTimeout(function() {
+    message.style.display = 'none';
+  }, 3000);
+}
+</script>
+  
+
+    <!-- КОМАНДИР -->
+  <div style="margin-top: 30px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Ваша звания» «фамилия»</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Я»</p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Ваша звания» «фамилия», выйти из строя</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: Подхожу к командиру строевым шагом. Останавливаюсь за два шага перед ним.</p>
+    <p style="margin: 2px 0 0 20px;">Выполняет: Жду</p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: Командир первым прикладывает руку к головному убору (отдаёт честь)</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: Отдаю честь вслед за командиром</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ (говорят) -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Товарищ «звания командира»! Рядовой Леонов для принятия Военной присяги прибыл!»</p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Приступить к выполнению торжественной присяги»</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: Разворачиваюсь кругом, становлюсь спиной к командиру</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ (текст присяги) -->
+  <div style="margin-top: 12px; padding: 20px 25px; background: rgba(106, 168, 120, 0.12); border: 2px solid #6aa878; border-radius: 6px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 8px 0 0 20px; font-size: 16px; line-height: 1.8;">
+      Говорит: «Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.»
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: По окончании текста поворачиваюсь кругом лицом к командиру</p>
+    <p style="margin: 2px 0 0 20px;">Выполняет: Жду дальнейшей команды</p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">Говорит: «Вольно! Стать в строй»</p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">Выполняет: Отвечаю: <span style="color: #6aa878; font-weight: bold;">«Так точно!»</span></p>
+    <p style="margin: 2px 0 0 20px;">Выполняет: Разворачиваюсь кругом и строевым шагом возвращаюсь в строй</p>
+  </div>
+
+  <!-- Нижний колонтитул -->
+  <p style="margin-top: 30px; padding-left: 20px; color: #555; font-size: 14px; border-top: 1px solid #ddd; padding-top: 20px;">
+    📌 Порядок действий может быть другой
+  </p>
+
+</section>
 
 <section class="section" data-section="promotion">
   <h2>📈 Повышение в звании</h2>
@@ -494,9 +737,9 @@ footer{
     <li>
       <strong>Тесты:</strong>
       <ul>
-        <li class="lead">Тест по строевой подготовке - <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFMYPW7yo-I2sHiTDmHbb--FBKhzJQCvVDuALpOeLcLIA-XA/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
-        <li class="lead">Тест по Уставу ВС РО - <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeHnmepqzcELRqbnWrHckxiGdYrbt6Q-_7k8t1F-npC6kyaA/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
-        <li class="lead">Тест по КПС - <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-Vv1CaPM__dAvEsIV9tK4egU9MJbqeqzY87nJUmlPZEoa0Q/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
+        <li class="lead">Тест по Строевой подготовке - <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFMYPW7yo-I2sHiTDmHbb--FBKhzJQCvVDuALpOeLcLIA-XA/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
+        <li class="lead">Тест по Уставу внутреней службы Российской федерации - <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeHnmepqzcELRqbnWrHckxiGdYrbt6Q-_7k8t1F-npC6kyaA/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
+        <li class="lead">Тест по Караульно постовой службы - <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-Vv1CaPM__dAvEsIV9tK4egU9MJbqeqzY87nJUmlPZEoa0Q/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
         <li class="lead">Тест по Форме одежды (Дресс код) - <a href="https://docs.google.com/forms/d/e/1FAIpQLScdYAU_kd-zHxYesIxVuZdk8JuAbUhBpLyQxqTXXyIQTdp-KQ/viewform?usp=dialog" style="color: #e8d5a3; text-decoration: none; font-weight: bold;">Сыллка</a></li>
     </ul>
 		<div style="color: #e8465b;">Приложить скрины полные, не обрезанные!</div>
@@ -628,11 +871,31 @@ const SITE_DATA = {
 ],
 
  senior: [
+  ["Лидер","Генерал","Владимир Воронин",""],
   ["Военный Комиссар","Генерал-Майор","Илья Матвиенков","assets/images/senior/ilya-matvienkov.png"],
   ["Заместитель Военного Комиссара - Начальник Отдела кадров","Полковник","Максим Лапушкин","assets/images/senior/maksimm-lapushkin.png"],
   ["1-й Заместитель Военного Комиссара","Полковник","Владислав Гуров","assets/images/senior/vladislav-gurov.png"],
   ["Заместитель Военного Комиссара - Командир Роты Молодого Пополнения","Полковник","Сергей Романов","assets/images/senior/sergey-romanov.png"]
-]
+],
+
+departments: [
+    // ===== ФСВНГ =====
+    { name: "Федеральная служба войск национальной гвардии (ФСВНГ)", desc: "Центральный орган. Стратегия, безопасность, координация ОМОН, РВО, ОСБ.", img: "", branch: "FSVNG" },
+    { name: "Отряд мобильного особого назначения (ОМОН) ФСВНГ", desc: "Ударная сила. Спецоперации, безопасность массовых мероприятий.", img: "", branch: "FSVNG" },
+    { name: "Отдел собственной безопасности (ОСБ) ФСВНГ", desc: "Внутренний контроль, выявление злоупотреблений, предотвращение коррупции.", img: "", branch: "FSVNG" },
+    { name: "Рота вневедомственной охраны (РВО) ФСВНГ", desc: "Охрана гособъектов, быстрое реагирование, патрулирование.", img: "", branch: "FSVNG" },
+    { name: "Кадровая служба (КС) ФСВНГ", desc: "Учёт личного состава, оформление документов, профессиональное развитие.", img: "", branch: "FSVNG" },
+
+    // ===== ВС РФ =====
+    { name: "Главное разведывательное управление (ГРУ)", desc: "Элита военной разведки. Сбор и анализ стратегической информации, спецзадачи.", img: "", branch: "VS" },
+    { name: "Силы специальных операций (ССО) ВС РО", desc: "Подразделение особого назначения. Антитеррор, глубокая разведка, спецмиссии.", img: "", branch: "VS" },
+    { name: "Мотострелковый корпус (МК) ВС РО", desc: "Основная боевая сила для общевойсковых боёв. Защита территорий, штурмы.", img: "", branch: "VS" },
+    { name: "Военная полиция (ВП) ВС РО", desc: "Гарант дисциплины и законности. Расследования, контроль уставов, защита военнослужащих.", img: "", branch: "VS" },
+    { name: "Медицинская рота (МР) ВС РО", desc: "Первая помощь, эвакуация, медосмотры, сохранение боеспособности.", img: "", branch: "VS" },
+    { name: "Военный комиссариат (ВА) ВС РО", desc: "Приём новобранцев, первоначальная подготовка, распределение по частям.", img: "", branch: "VS" },
+    { name: "Рота молодого пополнения (РПМ) ВС РО", desc: "Адаптация новобранцев, строевая и физическая подготовка, изучение уставов.", img: "", branch: "VS" }
+
+  ]
 };
 
 function renderRanks(){
@@ -649,6 +912,33 @@ function renderRanks(){
    <div class="rank-name">${r[0]}</div>`;
   grid.appendChild(card);
  });
+}
+function renderDepartments() {
+  const vsContainer = document.getElementById("vsDepartments");
+  const fsvngContainer = document.getElementById("fsvngDepartments");
+  vsContainer.innerHTML = "";
+  fsvngContainer.innerHTML = "";
+
+  SITE_DATA.departments.forEach(d => {
+    const card = document.createElement("div");
+    card.className = "dept-card";
+    const imgHtml = d.img
+      ? `<img src="${d.img}" alt="${d.name}">`
+      : `<div class="placeholder"><strong>НЕТ ФОТО</strong><span>добавьте ссылку в поле img</span></div>`;
+    card.innerHTML = `
+      <div class="dept-img">${imgHtml}</div>
+      <div class="dept-body">
+        <div class="dept-badge">${d.branch === "VS" ? "ВС РФ" : "ФСВНГ"}</div>
+        <h3>${d.name}</h3>
+        <p>${d.desc}</p>
+      </div>
+    `;
+    if (d.branch === "VS") {
+      vsContainer.appendChild(card);
+    } else {
+      fsvngContainer.appendChild(card);
+    }
+  });
 }
 function renderSenior(){
  const grid=document.getElementById("peopleGrid");
@@ -707,6 +997,7 @@ document.getElementById("search").addEventListener("keydown",e=>{
  if(hit)show(hit[1]);
 });
 
+renderDepartments();
 renderRanks();
 renderSenior();
 setLogo();
