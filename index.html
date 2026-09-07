@@ -238,8 +238,9 @@ footer{
  </div>
  <nav class="nav">
    <a href="#" data-page="home"><span class="icon">⌂</span>Главная</a>
-
-   <details open>
+   <a href="#" data-page="mapa"><span class="icon">◈</span>Карта</a>
+   
+   <details>
     <summary><span class="icon">▣</span>Уставы</summary>
     <div class="sub">
      <a href="#" data-page="ustav-vs">Устав Вооружённых сил РФ</a>
@@ -248,27 +249,17 @@ footer{
     </div>
    </details>
 
-   <details>
-    <summary><span class="icon">★</span>Cостав и Ранги</summary>
-    <div class="sub">
-	 <a href="#" data-page="senior">Старший состав</a>
-	 <a href="#" data-page="Groups">Отделы</a>
-     <a href="#" data-page="ranks">Ранги</a>
-    </div>
-   </details>
+
    
    <details>
     <summary><span class="icon">✦</span>Отчёты</summary>
     <div class="sub">
 	 <a href="#" data-page="HGdoklad">Вечерний доклад</a>
 	 <a href="#" data-page="Prisaga">Военная присяга</a>
-
     </div>
    </details>
-
-   <a href="#" data-page="guard"><span class="icon">◈</span>Караульная служба</a>   
-   <a href="#" data-page="promotion"><span class="icon">↗</span>Повышение до 3 ранга</a>
    <a href="#" data-page="dictionary"><span class="icon">▤</span>Словарь для новичков</a>
+   <a href="#" data-page="promotion"><span class="icon">↗</span>Повышение до 3 ранга</a>
  </nav>
 </aside>
 
@@ -286,9 +277,9 @@ footer{
  </section>
 
  <section class="grid" id="homeCards">
-  <article class="card"><div class="num">01</div><h3>Командование</h3><p>Погоны, звания и информация о старшем составе армии.</p><button class="btn" data-page="ranks">Подробнее →</button></article>
-  <article class="card"><div class="num">02</div><h3>Уставы</h3><p>Основные документы и правила службы, собранные в одном месте.</p><button class="btn" data-page="ustav-vs">Подробнее →</button></article>
-  <article class="card"><div class="num">03</div><h3>Караульная служба</h3><p>Обязанности, порядок заступления на пост и действия в типичных ситуациях.</p><button class="btn" data-page="guard">Подробнее →</button></article>
+  <article class="card"><div class="num">01</div><h3>Карта</h3><p>Карта объектов и порядок заступления на посты.</p><button class="btn" data-page="guard">Подробнее →</button></article>
+  <article class="card"><div class="num">02</div><h3>Командование</h3><p>Погоны, звания и информация о старшем составе армии.</p><button class="btn" data-page="ranks">Подробнее →</button></article>
+  <article class="card"><div class="num">03</div><h3>Уставы</h3><p>Основные документы и правила службы, собранные в одном месте.</p><button class="btn" data-page="ustav-vs">Подробнее →</button></article>
   <article class="card"><div class="num">04</div><h3>Повышение в звании</h3><p>Пошаговый путь от новичка до следующего звания.</p><button class="btn" data-page="promotion">Подробнее →</button></article>
  </section>
 
@@ -308,7 +299,7 @@ footer{
   <div class="people-grid" id="peopleGrid"></div>
  </section>
  
-<!-- ОТДЕЛЫ -->
+ <!-- ОТДЕЛЫ -->
 <section class="section" data-section="Groups">
   <h2>✪ Отделы</h2>
   <p class="lead">Подразделения Вооружённых Сил РФ и Федеральной службы войск национальной гвардии.</p>
@@ -506,8 +497,6 @@ footer{
   </div>
 </section>
   
- </section>
-
  <section class="section" data-section="guard-charter">
   <h2> 🗟 Устав караульно-постовой службы</h2><p class="lead">Организация и порядок несения караульной службы.</p>
   
@@ -569,10 +558,570 @@ footer{
     </p>
   
  </section>
-
+ <!-- Караульная служба -->
  <section class="section" data-section="guard">
   <h2> 🛡 Караульная служба</h2><p class="lead">Пошаговый гайд: подготовка → заступление → несение службы → смена поста.</p>
  </section>
+ <!-- КАРТА -->
+<section class="section" data-section="mapa">
+  <h2>🗺️ Карта военной базы</h2>
+  <p class="lead">Интерактивная карта с основными объектами. Наведите на метку для информации.</p>
+
+  <div style="
+    background: #101713;
+    border: 1px solid #2b4632;
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 16px;
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.5);
+  ">
+    <div style="
+      position: relative;
+      width: 100%;
+      border-radius: 10px;
+      overflow: visible;
+      border: 1px solid #2b4632;
+      background: #0d1410;
+    " id="mapWrapper">
+
+      <!-- ===== КАРТА ===== -->
+      <img
+        src="assets/images/map/mapa.png"
+        alt="Схема военной базы"
+        style="display: block; width: 100%; height: auto; user-select: none; pointer-events: none;"
+        id="mapImage"
+      >
+
+      <!-- ===== МЕТКИ ===== -->
+      <div id="markersContainer"></div>
+
+    </div>
+
+    <!-- ===== ЛЕГЕНДА ===== -->
+    <div style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      padding: 14px 20px 4px;
+      justify-content: center;
+      border-top: 1px solid #1a251d;
+      margin-top: 14px;
+    ">
+ 
+    <!-- ===== СЧЁТЧИК ===== -->
+    <div style="
+      text-align: center;
+      padding: 8px 0 2px;
+      color: #4f8a63;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      border-top: 1px solid #1a251d;
+      margin-top: 8px;
+    ">
+      <span id="markerCounter">📍 Всего объектов: 18</span>
+    </div>
+  </div>
+
+  <style>
+    /* === СТИЛИ МЕТОК === */
+    .marker-base {
+      position: absolute;
+      padding: 2px 8px;
+      border: 2px solid #6aa878;
+      border-radius: 12px;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 0 3px rgba(79, 138, 99, 0.2);
+      z-index: 5;
+      font-size: 9px;
+      color: white;
+      font-weight: 700;
+      pointer-events: all;
+      font-family: Inter, Arial, sans-serif;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .marker-base:hover {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 0 0 6px rgba(106, 168, 120, 0.3);
+      z-index: 10;
+    }
+
+    /* === ТУЛТИП === */
+    .tooltip-base {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #151d18;
+      border: 1px solid #2b4632;
+      border-radius: 10px;
+      padding: 0;
+      width: 220px;
+      max-width: 90vw;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s ease;
+      pointer-events: none;
+      z-index: 20;
+      overflow: hidden;
+    }
+
+    .tooltip-base.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip-base img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #2b4632;
+      background: #0b110e;
+    }
+
+    .tooltip-base .body {
+      padding: 10px 12px 12px;
+    }
+
+    .tooltip-base .body h4 {
+      color: #e8ece9;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 3px 0;
+    }
+
+    .tooltip-base .body p {
+      color: #8f9b92;
+      font-size: 11px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .tooltip-base .body .badge {
+      display: inline-block;
+      background: #1e2f24;
+      color: #6aa878;
+      font-size: 8px;
+      letter-spacing: 0.5px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 700px) {
+      .marker-base { font-size: 7px; padding: 1px 5px; }
+      .tooltip-base { width: 180px; }
+      .tooltip-base img { height: 90px; }
+    }
+
+    @media (max-width: 480px) {
+      .marker-base { font-size: 6px; padding: 1px 4px; border-radius: 8px; }
+      .tooltip-base { width: 150px; }
+      .tooltip-base img { height: 70px; }
+      .tooltip-base .body { padding: 6px 8px 8px; }
+      .tooltip-base .body h4 { font-size: 11px; }
+      .tooltip-base .body p { font-size: 9px; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      // ===== ОБЪЕКТЫ БАЗЫ С ТЕКСТОВЫМИ МЕТКАМИ =====
+      const objects = [
+        // КПП
+        { id: '▣ КПП-1', name: 'КПП-1', desc: 'Главный<br>контрольно-пропускной пункт<br>Въезд техники и личного состава.', left: 9, top: 67, color: '#b8956a', badge: 'КПП', img: 'assets/images/map/KPP-1.png' },
+        { id: '▣ КПП-2', name: 'КПП-2', desc: 'Запасной КПП <br> Для колонн снабжения.', left: 79, top: 5, color: '#b8956a', badge: 'КПП', img: 'assets/images/map/KPP-2.png' },
+
+        // Вышки по периметру
+        { id: '⏺ ВЫШКА-1', name: 'Вышка-1', desc: '', left: 14, top: 20, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-1.png' },
+		{ id: '⏺ ВЫШКА-2', name: 'Вышка-2', desc: '', left: 37, top: 24, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-2.png' },
+		{ id: '⏺ ВЫШКА-3', name: 'Вышка-3', desc: '', left: 72, top: 5, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-3.png' },
+		{ id: '⏺ ВЫШКА-4', name: 'Вышка-4', desc: '', left: 95, top: 67, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-4.png' },
+		{ id: '⏺ ВЫШКА-5', name: 'Вышка-5', desc: '', left: 96, top: 87, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-5.png' },
+		{ id: '⏺ ВЫШКА-6', name: 'Вышка-6', desc: '', left: 96, top: 97, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-6.png' },
+		{ id: '⏺ ВЫШКА-7', name: 'Вышка-7', desc: '', left: 46, top: 97, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-7.png' },
+		{ id: '⏺ ВЫШКА-8', name: 'Вышка-8', desc: '', left: 4, top: 97, color: '#4f8a63', badge: 'Постовая вышка', img: 'assets/images/map/V-8.png' },
+
+        // Склады и техника
+        { id: '▤ СКЛАД', name: 'Склад вооружения', desc: 'Хранилище<br>стрелкового оружия<br> и боеприпасов.', left: 31, top: 65, color: '#4a7a8f', badge: 'Склад', img: 'assets/images/map/sklad.png' },
+        { id: '▢ ГАРАЖ', name: 'Гаражи', desc: 'Места хранения <br> служебного автотранспорта.', left: 64, top: 22, color: '#4a7a8f', badge: 'Техника', img: 'assets/images/map/car.png' },
+
+        // Инфраструктура
+        { id: '✚ МЕД', name: 'Медицинская рота', desc: 'Медицинский пункт <br> с лазаретом и операционной.', left: 42, top: 56, color: '#b6a15b', badge: 'Медицина', img: 'assets/images/map/medic.png' },
+
+        // Учебные объекты
+       { id: '✦ ПОЛИГОН', name: 'Полигон', desc: 'Учебный полигон<br> для стрельб <br> тактических учений.', left: 30, top: 79, color: '#b55a5a', badge: 'Учения', img: 'assets/images/map/gym.png' },
+        { id: '🏁 ПЛАЦ', name: 'Плац', desc: 'Строевой плац для построений<br> и занятий по физподготовке.', left: 31, top: 55, color: '#b8956a', badge: 'Плац', img: 'assets/images/map/plac.png' },
+      ];
+
+      // ===== ОТРИСОВКА =====
+      const container = document.getElementById('markersContainer');
+      const wrapper = document.getElementById('mapWrapper');
+
+      if (!container || !wrapper) return;
+
+      objects.forEach((obj) => {
+        const marker = document.createElement('div');
+        marker.className = 'marker-base';
+        marker.style.left = obj.left + '%';
+        marker.style.top = obj.top + '%';
+        marker.style.background = obj.color;
+        marker.style.borderColor = obj.color;
+        marker.textContent = obj.id;
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip-base';
+        tooltip.innerHTML = `
+          <img src="${obj.img}" alt="${obj.name}" loading="lazy">
+          <div class="body">
+            <h4>${obj.name}</h4>
+            <p>${obj.desc}</p>
+            <span class="badge">${obj.badge}</span>
+          </div>
+        `;
+        marker.appendChild(tooltip);
+
+        // ===== ОБРАБОТЧИКИ =====
+        let hideTimeout;
+
+        marker.addEventListener('mouseenter', function(e) {
+          clearTimeout(hideTimeout);
+          document.querySelectorAll('.tooltip-base.active').forEach(t => t.classList.remove('active'));
+          tooltip.classList.add('active');
+
+          // Корректировка позиции тултипа
+          setTimeout(() => {
+            const rect = marker.getBoundingClientRect();
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+
+            // Горизонтальная коррекция
+            if (tooltipRect.left < wrapperRect.left + 10) {
+              tooltip.style.left = '0%';
+              tooltip.style.transform = 'translateX(0)';
+            } else if (tooltipRect.right > wrapperRect.right - 10) {
+              tooltip.style.left = 'auto';
+              tooltip.style.right = '0';
+              tooltip.style.transform = 'translateX(0)';
+            } else {
+              tooltip.style.left = '50%';
+              tooltip.style.right = 'auto';
+              tooltip.style.transform = 'translateX(-50%)';
+            }
+
+            // Вертикальная коррекция (показываем сверху или снизу)
+            if (tooltipRect.top < wrapperRect.top + 20) {
+              tooltip.style.bottom = 'auto';
+              tooltip.style.top = 'calc(100% + 12px)';
+            } else {
+              tooltip.style.bottom = 'calc(100% + 14px)';
+              tooltip.style.top = 'auto';
+            }
+          }, 10);
+        });
+
+        marker.addEventListener('mouseleave', function(e) {
+          clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => {
+            const hovered = document.elementFromPoint(e.clientX, e.clientY);
+            if (hovered && (hovered.closest('.tooltip-base') || hovered.closest('.marker-base'))) return;
+            tooltip.classList.remove('active');
+          }, 200);
+        });
+
+        tooltip.addEventListener('mouseenter', function() {
+          clearTimeout(hideTimeout);
+          tooltip.classList.add('active');
+        });
+
+        tooltip.addEventListener('mouseleave', function(e) {
+          clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => {
+            const hovered = document.elementFromPoint(e.clientX, e.clientY);
+            if (hovered && hovered.closest('.marker-base')) return;
+            tooltip.classList.remove('active');
+          }, 200);
+        });
+
+        // Клик для мобильных
+        marker.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const isActive = tooltip.classList.contains('active');
+          document.querySelectorAll('.tooltip-base.active').forEach(t => t.classList.remove('active'));
+          if (!isActive) {
+            tooltip.classList.add('active');
+            // Корректировка позиции
+            setTimeout(() => {
+              const rect = marker.getBoundingClientRect();
+              const wrapperRect = wrapper.getBoundingClientRect();
+              const tooltipRect = tooltip.getBoundingClientRect();
+
+              if (tooltipRect.left < wrapperRect.left + 10) {
+                tooltip.style.left = '0%';
+                tooltip.style.transform = 'translateX(0)';
+              } else if (tooltipRect.right > wrapperRect.right - 10) {
+                tooltip.style.left = 'auto';
+                tooltip.style.right = '0';
+                tooltip.style.transform = 'translateX(0)';
+              } else {
+                tooltip.style.left = '50%';
+                tooltip.style.right = 'auto';
+                tooltip.style.transform = 'translateX(-50%)';
+              }
+
+              if (tooltipRect.top < wrapperRect.top + 20) {
+                tooltip.style.bottom = 'auto';
+                tooltip.style.top = 'calc(100% + 12px)';
+              } else {
+                tooltip.style.bottom = 'calc(100% + 14px)';
+                tooltip.style.top = 'auto';
+              }
+            }, 10);
+          }
+        });
+
+        container.appendChild(marker);
+      });
+
+      // Клик вне — скрыть всё
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.marker-base') && !e.target.closest('.tooltip-base')) {
+          document.querySelectorAll('.tooltip-base.active').forEach(t => t.classList.remove('active'));
+        }
+      });
+
+      // При скролле/ресайзе скрываем
+      window.addEventListener('scroll', () => {
+        document.querySelectorAll('.tooltip-base.active').forEach(t => t.classList.remove('active'));
+      });
+
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('.tooltip-base.active').forEach(t => t.classList.remove('active'));
+      });
+
+      // Обновляем счётчик
+      const counter = document.getElementById('markerCounter');
+      if (counter) {
+        counter.textContent = `📍 Всего объектов: ${objects.length}`;
+      }
+
+    })();
+  </script>
+
+<!-- ===== ИНФОРМАЦИЯ О ПОСТАХ ===== -->
+<div style="margin-top: 24px; border-top: 1px solid #1a251d; padding-top: 20px;">
+
+  <h3 style="color: #6aa878; font-size: 18px; font-weight: 700; margin: 0 0 16px 0; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px;">
+    <span>📋 Информация о постах</span>
+    <span style="font-size: 13px; color: #4f8a63; font-weight: 400;">кликните по названию для подробностей</span>
+  </h3>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+
+    <!-- ===== КПП-1 ===== -->
+    <details style="background: #0d1410; border: 1px solid #2b4632; border-radius: 10px; padding: 0; overflow: hidden;">
+      <summary style="
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        cursor: pointer;
+        list-style: none;
+        transition: 0.2s;
+        font-weight: 600;
+        color: #e8ece9;
+        font-size: 14px;
+        border-bottom: 1px solid transparent;
+      ">
+        <span style="color: #b8956a; font-size: 20px;">⛩️</span>
+        <span>КПП-1</span>
+        <span style="margin-left: auto; color: #4f8a63; font-size: 12px; font-weight: 400;">▶</span>
+      </summary>
+      <div style="padding: 0 16px 16px 16px; color: #8f9b92; font-size: 13px; line-height: 1.7;">
+
+        <!-- ===== ФОРМА ОДЕЖДЫ ===== -->
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎽 Форма одежды:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Тяжёлое защитное обмундирование</li>
+          <li>Табельное оружие и дополнительные боеприпасы</li>
+          <li>Средства радиосвязи</li>
+          <li>Специальные средства (по должности)</li>
+          <li>Бодикамера <span style="color: #6aa878;">(включена)</span></li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">📌 Обязанности:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Проверять документы у убывающих и прибывающих лиц</li>
+          <li>Знать в лицо старший состав (генерал-майор и выше)</li>
+          <li>Докладывать о нарушениях Устава и законодательства</li>
+          <li>Пресекать попытки незаконного проникновения</li>
+          <li>Сообщать по рации о прибытии/убытии командования</li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">⛔ Запрещается:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Отвлекаться на телефон и разговоры</li>
+          <li>Оставлять вооружение без контроля</li>
+          <li>Бездействовать при совершении преступлений</li>
+          <li>Нарушать правила пропуска на территорию</li>
+        </ul>
+		
+		<p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">⚠️ Важно (Режимный объект):</p>
+        <p style="margin: 0 0 12px 0; padding-left: 6px; color: #b6a15b; font-size: 12px;">
+          Территория за КПП-1 и КПП-2 не является режимным объектом.<br>
+          Запрещено задерживать гражданских без угрозы жизни военнослужащих.
+        </p>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎤 Доклады (каждые 10 минут):</p>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №1 заступил | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №1 | Время - 00:10 | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №1 сдал | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+    </details>
+
+    <!-- ===== КПП-2 ===== -->
+    <details style="background: #0d1410; border: 1px solid #2b4632; border-radius: 10px; padding: 0; overflow: hidden;">
+      <summary style="
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        cursor: pointer;
+        list-style: none;
+        transition: 0.2s;
+        font-weight: 600;
+        color: #e8ece9;
+        font-size: 14px;
+      ">
+        <span style="color: #b8956a; font-size: 20px;">⛩️</span>
+        <span>КПП-2</span>
+        <span style="margin-left: auto; color: #4f8a63; font-size: 12px; font-weight: 400;">▶</span>
+      </summary>
+      <div style="padding: 0 16px 16px 16px; color: #8f9b92; font-size: 13px; line-height: 1.7;">
+
+        <!-- ===== ФОРМА ОДЕЖДЫ ===== -->
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎽 Форма одежды:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Тяжёлое защитное обмундирование</li>
+          <li>Табельное оружие и дополнительные боеприпасы</li>
+          <li>Средства радиосвязи</li>
+          <li>Специальные средства (по должности)</li>
+          <li>Бодикамера <span style="color: #6aa878;">(включена)</span></li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">📌 Обязанности:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Проверять документы у убывающих и прибывающих лиц</li>
+          <li>Знать в лицо старший состав (генерал-майор и выше)</li>
+          <li>Докладывать о нарушениях Устава и законодательства</li>
+          <li>Пресекать попытки незаконного проникновения</li>
+          <li>Сообщать по рации о прибытии/убытии командования</li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">⛔ Запрещается:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Отвлекаться на телефон и разговоры</li>
+          <li>Оставлять вооружение без контроля</li>
+          <li>Бездействовать при совершении преступлений</li>
+          <li>Нарушать правила пропуска на территорию</li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">⚠️ Важно (Режимный объект):</p>
+        <p style="margin: 0 0 12px 0; padding-left: 6px; color: #b6a15b; font-size: 12px;">
+          Территория за КПП-1 и КПП-2 не является режимным объектом.<br>
+          Запрещено задерживать гражданских без угрозы жизни военнослужащих.
+        </p>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎤 Доклады (каждые 10 минут):</p>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №2 заступил | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №2 | Время - 00:10 | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b;">
+          /f Докладывает: Рядовой Иванов | Пост КПП №2 сдал | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+      </div>
+    </details>
+
+    <!-- ===== ВЫШКИ 1-8 ===== -->
+    <details style="background: #0d1410; border: 1px solid #2b4632; border-radius: 10px; padding: 0; overflow: hidden; grid-column: 1 / -1;">
+      <summary style="
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        cursor: pointer;
+        list-style: none;
+        transition: 0.2s;
+        font-weight: 600;
+        color: #e8ece9;
+        font-size: 14px;
+      ">
+        <span style="color: #4f8a63; font-size: 20px;">🗼</span>
+        <span>Вышки №1–8</span>
+        <span style="margin-left: auto; color: #4f8a63; font-size: 12px; font-weight: 400;">▶</span>
+      </summary>
+      <div style="padding: 0 16px 16px 16px; color: #8f9b92; font-size: 13px; line-height: 1.7;">
+
+        <!-- ===== ФОРМА ОДЕЖДЫ ===== -->
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎽 Форма одежды:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Тяжёлое защитное обмундирование</li>
+          <li>Табельное оружие и дополнительные боеприпасы</li>
+          <li>Средства радиосвязи</li>
+          <li>Специальные средства (по должности)</li>
+          <li>Бодикамера <span style="color: #6aa878;">(включена)</span></li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">📍 Нумерация:</p>
+        <p style="margin: 0 0 12px 0; padding-left: 6px; color: #8f9b92;">
+          Вышки обозначены <span style="color: #4f8a63; font-weight: 600;">зелёной звездой</span> с номером по порядку.<br>
+          Нумерация идёт <strong>по часовой стрелке</strong>.
+        </p>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">📌 Обязанности:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Докладывать о нарушениях Устава и законодательства</li>
+          <li>Пресекать преступления и правонарушения</li>
+          <li>Пресекать попытки незаконного проникновения</li>
+          <li>Своевременно докладывать о состоянии поста</li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">⛔ Запрещается:</p>
+        <ul style="margin: 0 0 12px 0; padding-left: 20px; color: #8f9b92;">
+          <li>Спать, сидеть и прислоняться к чему-либо</li>
+          <li>Читать, писать, петь</li>
+          <li>Есть, пить и курить</li>
+          <li>Использовать средства личной связи</li>
+          <li>Досылать патрон в патронник без необходимости</li>
+        </ul>
+
+        <p style="color: #6aa878; font-weight: 600; margin: 8px 0 4px 0;">🎤 Доклады (каждые 10 минут):</p>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          Докладывает: Рядовой Иванов | Пост Вышка №1-8 заступил | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b; margin-bottom: 4px;">
+          Докладывает: Рядовой Иванов | Пост Вышка №1-8 | Время - 00:10 | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+        <code style="display: block; background: #0a100d; padding: 8px 12px; border-radius: 6px; border: 1px solid #1a251d; font-size: 12px; color: #b6a15b;">
+          Докладывает: Рядовой Иванов | Пост Вышка №1-8 сдал | Состав: 1 | Код: 1 | Доклад окончен.
+        </code>
+    </details>
+</section>
  
 <section class="section" data-section="HGdoklad">
   <h2>✎ Вечерний доклад</h2><p class="lead">Памятка для высоких рангов. Порядок проведения вечернего доклада для руководителей подразделений.</p>
@@ -967,7 +1516,9 @@ footer{
   
 <ol>
   <li>
-    <strong>Несение службы на КПП и Вышка</strong>
+    <strong>Несение службы на КПП и Вышка</strong><a href="#" data-page="mapa" style="color: #6aa878; text-decoration: none; border-bottom: 1px dashed #2b4632;">
+  🗺️ перейти к карте
+</a>
     <ul>
       <li class="lead">КПП №1 - 60 минут</li>
       <li class="lead">КПП №2 - 60 минут</li>
@@ -993,7 +1544,9 @@ footer{
   </li>
   
   <li>
-    <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong>
+    <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong><a href="#" data-page="mapa" style="color: #6aa878; text-decoration: none; border-bottom: 1px dashed #2b4632;">
+  🗺️ перейти к карте
+</a>
   </li>
 </ol>
 
@@ -1018,7 +1571,9 @@ footer{
     </li>
 
     <li>
-      <strong>Несение службы на КПП</strong>
+      <strong>Несение службы на КПП</strong><a href="#" data-page="mapa" style="color: #6aa878; text-decoration: none; border-bottom: 1px dashed #2b4632;">
+  🗺️ перейти к карте
+</a>
       <ul>
         <li class="lead">КПП №1 — 30 минут</li>
         <li class="lead">КПП №2 — 30 минут</li>
@@ -1061,7 +1616,9 @@ footer{
 
   <ol>
     <li>
-      <strong>Несение службы на КПП и Вышка</strong>
+      <strong>Несение службы на КПП и Вышка</strong><a href="#" data-page="mapa" style="color: #6aa878; text-decoration: none; border-bottom: 1px dashed #2b4632;">
+  🗺️ перейти к карте
+</a>
       <ul>
         <li class="lead">КПП №1 — 30 минут</li>
         <li class="lead">КПП №2 — 30 минут</li>
@@ -1091,11 +1648,13 @@ footer{
     </li>
 
     <li>
-      <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong>
+      <strong>Пройти Военно-Врачебную Комиссию у Медицинской роты</strong><a href="#" data-page="mapa" style="color: #6aa878; text-decoration: none; border-bottom: 1px dashed #2b4632;">
+  🗺️ перейти к карте
+</a>
     </li>
   </ol>
 </section>
-
+ <!-- Словарь -->
  <section class="section" data-section="dictionary">
   <h2> 🕮 Словарь для новичков</h2><p class="lead">Каждое сокращение будет расшифровано и объяснено простыми словами.</p>
   
