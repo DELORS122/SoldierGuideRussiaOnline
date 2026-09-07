@@ -232,7 +232,6 @@ footer{
 
 <aside class="sidebar" id="sidebar">
  <div class="brand">
-   <!-- ВСТАВЬТЕ URL ЭМБЛЕМЫ В SITE_DATA.logo -->
    <div class="logo" id="brandLogo">★</div>
    <h1>АРМИЯ ТВЕРСКОГО СЕРВЕРА</h1>
    <p>ПАМЯТКА ВОЕННОСЛУЖАЩЕГО</p>
@@ -257,8 +256,16 @@ footer{
      <a href="#" data-page="ranks">Ранги</a>
     </div>
    </details>
+   
+   <details>
+    <summary><span class="icon">✦</span>Отчёты</summary>
+    <div class="sub">
+	 <a href="#" data-page="HGdoklad">Вечерний доклад</a>
+	 <a href="#" data-page="Prisaga">Военная присяга</a>
 
-   <a href="#" data-page="Prisaga"><span class="icon">✦️</span>Присяга</a>
+    </div>
+   </details>
+
    <a href="#" data-page="guard"><span class="icon">◈</span>Караульная служба</a>   
    <a href="#" data-page="promotion"><span class="icon">↗</span>Повышение до 3 ранга</a>
    <a href="#" data-page="dictionary"><span class="icon">▤</span>Словарь для новичков</a>
@@ -303,7 +310,7 @@ footer{
  
 <!-- ОТДЕЛЫ -->
 <section class="section" data-section="Groups">
-  <h2>★ Отделы</h2>
+  <h2>✪ Отделы</h2>
   <p class="lead">Подразделения Вооружённых Сил РФ и Федеральной службы войск национальной гвардии.</p>
 
   <div class="dept-divider" style="margin-top: 40px;">🛡 ФЕДЕРАЛЬНАЯ СЛУЖБА ВОЙСК НАЦИОНАЛЬНОЙ ГВАРДИИ</div>
@@ -316,7 +323,7 @@ footer{
 
  <!-- УСТАВЫ -->
  <section class="section" data-section="ustav-vs">
-  <h2>Устав Вооружённых сил РФ</h2>
+  <h2> 🗟 Устав Вооружённых сил РФ</h2>
   <p class="lead">Здесь будет размещено содержание и понятное объяснение правил.</p>
   
     <div style="margin-top: 30px; line-height: 1.8;">
@@ -399,7 +406,7 @@ footer{
  </section>
 
  <section class="section" data-section="discipline">
-  <h2>Дисциплинарный устав</h2><p class="lead">Дисциплина, поощрения, взыскания и ответственность.</p>
+  <h2> 🗟 Дисциплинарный устав</h2><p class="lead">Дисциплина, поощрения, взыскания и ответственность.</p>
  
   <div style="margin-top: 30px; line-height: 1.8;">
 
@@ -502,7 +509,7 @@ footer{
  </section>
 
  <section class="section" data-section="guard-charter">
-  <h2>Устав караульно-постовой службы</h2><p class="lead">Организация и порядок несения караульной службы.</p>
+  <h2> 🗟 Устав караульно-постовой службы</h2><p class="lead">Организация и порядок несения караульной службы.</p>
   
   <!-- ПРЕАМБУЛА -->
 <p style="color: #6aa878; font-weight: bold; font-size: 18px;">ПРЕАМБУЛА</p>
@@ -564,147 +571,338 @@ footer{
  </section>
 
  <section class="section" data-section="guard">
-  <h2>🛡 Караульная служба</h2><p class="lead">Пошаговый гайд: подготовка → заступление → несение службы → смена поста.</p>
+  <h2> 🛡 Караульная служба</h2><p class="lead">Пошаговый гайд: подготовка → заступление → несение службы → смена поста.</p>
  </section>
  
- <section class="section" data-section="Prisaga">
-  <h2>📜 Военная присяга</h2>
-  <p class="lead">Пошаговый гайд: О получение символа верности Родине.</p>
+<section class="section" data-section="HGdoklad">
+  <h2>✎ Вечерний доклад</h2><p class="lead">Памятка для высоких рангов. Порядок проведения вечернего доклада для руководителей подразделений.</p>
   
-  
-  <!-- Окошко с текстом присяги для копирования -->
-<div style="margin-top: 20px; padding: 20px 25px; background: rgba(106, 168, 120, 0.08); border: 2px dashed #6aa878; border-radius: 8px; position: relative;">
-  
-  <!-- Заголовок -->
-  <p style="font-weight: bold; color: #6aa878; margin: 0 0 12px 0; font-size: 16px;">Текст Военной присяги:</p>
-  
-  <!-- Сам текст в отдельном блоке для копирования -->
-  <div id="oathText" style="background: #1a2e22;  padding: 18px 20px; border-radius: 6px; monospace; font-size: 20px; line-height: 1.8; margin-bottom: 15px; border: 1px solid #2f4738;">
-    Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.
+  <!-- ШАГ 1 -->
+  <div>
+  <h4 style="font-weight: bold; margin: 0;">● Построение</h4>
   </div>
-  
-  <!-- Кнопка копирования -->
-  <button onclick="copyOathText()" style="background: #6aa878; color: white; border: none; padding: 10px 25px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#5a9a68'" onmouseout="this.style.background='#6aa878'">
-    📋 Скопировать текст
-  </button>
-  
-  <!-- Сообщение об успешном копировании -->
-  <span id="copyMessage" style="display: none; margin-left: 15px; color: #6aa878; font-weight: bold; font-size: 14px;">✅ Текст скопирован!</span>
-  
-</div>
 
-<!-- Скрипт для копирования -->
-<script>
-function copyOathText() {
-  // Получаем текст из блока
-  var textElement = document.getElementById('oathText');
-  var textToCopy = textElement.innerText;
-  
-  // Создаём временный текстовый элемент
-  var tempInput = document.createElement('textarea');
-  tempInput.value = textToCopy;
-  document.body.appendChild(tempInput);
-  
-  // Выделяем и копируем
-  tempInput.select();
-  document.execCommand('copy');
-  
-  // Удаляем временный элемент
-  document.body.removeChild(tempInput);
-  
-  // Показываем сообщение
-  var message = document.getElementById('copyMessage');
-  message.style.display = 'inline';
-  
-  // Скрываем сообщение через 3 секунды
-  setTimeout(function() {
-    message.style.display = 'none';
-  }, 3000);
-}
-</script>
-  
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(200, 180, 150, 0.05); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Главам отделов построиться в одну шеренгу. Равнение направо. Смирно!»
+    </p>
+  </div>
 
-    <!-- КОМАНДИР -->
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Выполняет:</span>
+      Строится в одну шеренгу согласно занимаемой должности.
+    </p>
+  </div>
+
+  <!-- ШАГ 2 -->
+  <div>
+  <h4 style="font-weight: bold; margin: 0;">● Начало доклада</h4>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(200, 180, 150, 0.05); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Главам отделов по очереди доложить о состоянии своих отделов. Начать с [название отдела].»
+    </p>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Выполняет:</span>
+      Выходит из строя и подходит к командиру.
+    </p>
+  </div>
+
+  <!-- ШАГ 3 -->
+  <div>
+  <h4 style="font-weight: bold; margin: 0;">● Доклад отдела</h4>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(200, 180, 150, 0.05); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «[Название отдела], доложить.»
+    </p>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Товарищ [звание], [должность] [ФИО]. Докладываю о состоянии [название отдела].»
+    </p>
+    <p style="margin: 2px 0 0 20px; color: var(--muted); font-style: italic;">
+      <span style="color: #888;">Выполняет:</span>
+      Докладывает информацию только по своему отделу.
+    </p>
+  </div>
+
+  <!-- ШАГ 4 -->
+  <div>
+  <h4 style="font-weight: bold; margin: 0;">● Личный доклад отдела</h4>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «В отделе состоит <strong>[количество]</strong> сотрудников, на службе находятся <strong>[количество]</strong>, отсутствуют <strong>[количество]</strong>.»
+    </p>
+  </div>
+
+  <!-- ШАГ 5 -->
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «За прошедшую смену отделом выполнены следующие задачи: <strong>[перечислить]</strong>.»
+    </p>
+  </div>
+
+  <!-- ШАГ 6 -->
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «За прошедшую смену нарушений и происшествий в отделе <strong style="color: #6aa878;">не выявлено</strong>.»
+    </p>
+  </div>
+
+  <div style="margin-top: 8px; padding: 12px 20px 12px 40px; background: rgba(100, 180, 150, 0.05); border-left: 4px solid #4a7a55; border-radius: 4px;">
+    <p style="font-weight: bold; color: #4a7a55; margin: 0;">ИЛИ</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «За прошедшую смену в отделе выявлены следующие нарушения/происшествия: <strong style="color: #e8465b;">[указать]</strong>.»
+    </p>
+  </div>
+  <br>
+  <!-- ШАГ 7 -->
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Проблем и замечаний по работе отдела <strong style="color: #6aa878;">не имеется</strong>.»
+    </p>
+  </div>
+
+  <div style="margin-top: 8px; padding: 12px 20px 12px 40px; background: rgba(100, 180, 150, 0.05); border-left: 4px solid #4a7a55; border-radius: 4px;">
+    <p style="font-weight: bold; color: #4a7a55; margin: 0;">ИЛИ</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Имеются следующие проблемы и замечания: <strong style="color: #e8465b;">[указать]</strong>.»
+    </p>
+  </div>
+  <!-- ШАГ 8 -->
+  <div>
+  <h4 style="font-weight: bold; margin: 0;">● Завершение доклада отдела</h4>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(200, 180, 150, 0.05); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Говорит:</span>
+      «Доклад принят. Следующий отдел — [название отдела].»
+    </p>
+  </div>
+
+  <div style="margin-top: 5px; padding: 12px 20px 12px 40px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 3px 0 0 20px; color: var(--text);">
+      <span style="color: #888;">Выполняет:</span>
+      Возвращается в строй.
+    </p>
+  </div>
+
+  <!-- ШАГ 9 -->
+  <div style="margin-top: 18px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px ; border-radius: 4px;">
+    <p style="font-weight: bold; margin: 0;">Следующий отдел</p>
+  </div>
+  <p style="margin-top: 30px; padding-left: 20px; color: #555; font-size: 14px; border-top: 1px solid #ddd; padding-top: 20px;">
+    📌 ВАЖНО Вечерний доклад проводится руководителями подразделений<br>Порядок действий может быть иным или дополнен в зависимости от регламента части.
+  </p>
+</section>
+ 
+ <section class="section" data-section="Prisaga">
+  <h2>✎ Военная присяга</h2>
+  <p class="lead">Пошаговый гайд: О получение символа верности Родине.</p>
+
+  <!-- Окошко с текстом присяги для копирования -->
+  <div style="margin-top: 20px; padding: 20px 25px; background: rgba(106, 168, 120, 0.08); border: 2px dashed #6aa878; border-radius: 8px; position: relative;">
+
+    <p style="font-weight: bold; color: #6aa878; margin: 0 0 12px 0; font-size: 16px;">
+      Текст Военной присяги:
+    </p>
+
+    <div id="oathText" style="background: #1a2e22; padding: 18px 20px; border-radius: 6px; font-family: monospace; font-size: 20px; line-height: 1.8; margin-bottom: 15px; border: 1px solid #2f4738;">
+      Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.
+    </div>
+
+    <button onclick="copyOathText()" style="background: #6aa878; color: white; border: none; padding: 10px 25px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#5a9a68'" onmouseout="this.style.background='#6aa878'">
+      📋 Скопировать текст
+    </button>
+
+    <span id="copyMessage" style="display: none; margin-left: 15px; color: #6aa878; font-weight: bold; font-size: 14px;">
+      ✅ Текст скопирован!
+    </span>
+  </div>
+
+  <script>
+  function copyOathText() {
+    var textElement = document.getElementById('oathText');
+    var textToCopy = textElement.innerText;
+
+    var tempInput = document.createElement('textarea');
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
+
+    tempInput.select();
+    document.execCommand('copy');
+
+    document.body.removeChild(tempInput);
+
+    var message = document.getElementById('copyMessage');
+    message.style.display = 'inline';
+
+    setTimeout(function() {
+      message.style.display = 'none';
+    }, 3000);
+  }
+  </script>
+
+  <!-- КОМАНДИР -->
   <div style="margin-top: 30px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
     <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Ваша звания» «фамилия»</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Я»</p>
-  </div>
-
-  <!-- КОМАНДИР -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
-    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Ваша звания» «фамилия», выйти из строя</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: Подхожу к командиру строевым шагом. Останавливаюсь за два шага перед ним.</p>
-    <p style="margin: 2px 0 0 20px;">Выполняет: Жду</p>
-  </div>
-
-  <!-- КОМАНДИР -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
-    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: Командир первым прикладывает руку к головному убору (отдаёт честь)</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: Отдаю честь вслед за командиром</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ (говорят) -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Товарищ «звания командира»! Рядовой Леонов для принятия Военной присяги прибыл!»</p>
-  </div>
-
-  <!-- КОМАНДИР -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
-    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Приступить к выполнению торжественной присяги»</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ -->
-  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: Разворачиваюсь кругом, становлюсь спиной к командиру</p>
-  </div>
-
-  <!-- ВАШИ ДЕЙСТВИЯ (текст присяги) -->
-  <div style="margin-top: 12px; padding: 20px 25px; background: rgba(106, 168, 120, 0.12); border: 2px solid #6aa878; border-radius: 6px;">
-    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 8px 0 0 20px; font-size: 16px; line-height: 1.8;">
-      Говорит: «Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.»
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Ваша звания» «фамилия»
     </p>
   </div>
 
   <!-- ВАШИ ДЕЙСТВИЯ -->
   <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
     <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: По окончании текста поворачиваюсь кругом лицом к командиру</p>
-    <p style="margin: 2px 0 0 20px;">Выполняет: Жду дальнейшей команды</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Я»
+    </p>
   </div>
 
   <!-- КОМАНДИР -->
   <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
     <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
-    <p style="margin: 5px 0 0 20px;">Говорит: «Вольно! Стать в строй»</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Ваша звания» «фамилия», выйти из строя
+    </p>
   </div>
 
   <!-- ВАШИ ДЕЙСТВИЯ -->
   <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
     <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
-    <p style="margin: 5px 0 0 20px;">Выполняет: Отвечаю: <span style="color: #6aa878; font-weight: bold;">«Так точно!»</span></p>
-    <p style="margin: 2px 0 0 20px;">Выполняет: Разворачиваюсь кругом и строевым шагом возвращаюсь в строй</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Подхожу к командиру строевым шагом. Останавливаюсь за два шага перед ним.
+    </p>
+    <p style="margin: 2px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Жду
+    </p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Командир первым прикладывает руку к головному убору (отдаёт честь)
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Отдаю честь вслед за командиром
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Товарищ «звания командира»! Рядовой Леонов для принятия Военной присяги прибыл!»
+    </p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Приступить к выполнению торжественной присяги»
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Разворачиваюсь кругом, становлюсь спиной к командиру
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 20px 25px; background: rgba(106, 168, 120, 0.12); border: 2px solid #6aa878; border-radius: 6px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 8px 0 0 20px; font-size: 16px; line-height: 1.8;">
+      <span style="color: #888;">Говорит:</span>
+      «Я, (фамилия, имя, отчество), торжественно присягаю на верность своему Отечеству. Клянусь свято соблюдать Конституцию России, строго выполнять требования воинских уставов, приказы командиров и начальников. Клянусь достойно исполнять воинский долг, мужественно защищать свободу, независимость и конституционный строй России, народ и Отечество.»
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      По окончании текста поворачиваюсь кругом лицом к командиру
+    </p>
+    <p style="margin: 2px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Жду дальнейшей команды
+    </p>
+  </div>
+
+  <!-- КОМАНДИР -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(200, 180, 150, 0.10); border-left: 4px solid #b8956a; border-radius: 4px;">
+    <p style="font-weight: bold; color: #b8956a; margin: 0;">КОМАНДИР:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      «Вольно! Стать в строй»
+    </p>
+  </div>
+
+  <!-- ВАШИ ДЕЙСТВИЯ -->
+  <div style="margin-top: 12px; padding: 15px 20px; background: rgba(106, 168, 120, 0.08); border-left: 4px solid #6aa878; border-radius: 4px;">
+    <p style="font-weight: bold; color: #6aa878; margin: 0;">ВАШИ ДЕЙСТВИЯ:</p>
+    <p style="margin: 5px 0 0 20px;">
+      <span style="color: #888;">Говорит:</span>
+      <span style="color: #6aa878; font-weight: bold;">«Так точно!»</span>
+    </p>
+    <p style="margin: 2px 0 0 20px;">
+      <span style="color: #888;">Выполняет:</span>
+      Разворачиваюсь кругом и строевым шагом возвращаюсь в строй
+    </p>
   </div>
 
   <!-- Нижний колонтитул -->
@@ -715,10 +913,10 @@ function copyOathText() {
 </section>
 
 <section class="section" data-section="promotion">
-  <h2>📈 Повышение в звании</h2>
+  <h2> ⮝ Повышение в звании</h2>
   <p class="lead">Понятная инструкция для новичка без необъяснимых сокращений.</p>
 <!-- ============ 1 РАНГ → 2 РАНГ КМБ ============ -->
-  <div class="dept-divider" style="margin-top: 40px;">⚔ Рота молодого пополнения [РПМ] </div>
+  <div class="dept-divider" style="margin-top: 40px;">⚔ РМП</div>
   <div class="dept-grid" id="fsvngDepartments"></div>
   
    <center><h2>Рядовой <span style="color: #2f4738;"><b>[1 ранг]</b></span> → Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span></h2></center>
@@ -800,7 +998,7 @@ function copyOathText() {
 </ol>
 
 
-  <div class="dept-divider">⚔ Курс молодого бойца [КМБ]</div>
+  <div class="dept-divider">⚔ КМБ</div>
   <div class="dept-grid" id="vsDepartments"></div>
   <center><h2>Рядовой <span style="color: #2f4738;"><b>[1 ранг]</b></span> → Ефрейтор <span style="color: #2f4738;"><b>[2 ранг]</b></span></h2></center>
 
@@ -899,7 +1097,7 @@ function copyOathText() {
 </section>
 
  <section class="section" data-section="dictionary">
-  <h2>📖 Словарь для новичков</h2><p class="lead">Каждое сокращение будет расшифровано и объяснено простыми словами.</p>
+  <h2> 🕮 Словарь для новичков</h2><p class="lead">Каждое сокращение будет расшифровано и объяснено простыми словами.</p>
   
   <div style="margin-top: 30px; line-height: 1.8;">
 
@@ -996,7 +1194,6 @@ departments: [
     { name: "Медицинская рота (МР) ВС РО", desc: "Первая помощь, эвакуация, медосмотры, сохранение боеспособности.", img: "", branch: "VS" },
     { name: "Военный комиссариат (ВА) ВС РО", desc: "Приём новобранцев, первоначальная подготовка, распределение по частям.", img: "", branch: "VS" },
     { name: "Рота молодого пополнения (РПМ) ВС РО", desc: "Адаптация новобранцев, строевая и физическая подготовка, изучение уставов.", img: "", branch: "VS" }
-
   ]
 };
 
@@ -1086,18 +1283,110 @@ document.querySelectorAll("[data-page]").forEach(el=>{
 });
 document.getElementById("menu").addEventListener("click",()=>document.getElementById("sidebar").classList.toggle("open"));
 
-document.getElementById("search").addEventListener("keydown",e=>{
- if(e.key!=="Enter")return;
- const q=e.target.value.toLowerCase().trim();
- if(!q)return;
- const map=[
-  ["погон","ranks"],["зван","ranks"],["началь","senior"],["команд","senior"],
-  ["устав","ustav-vs"],["дисцип","discipline"],["караул","guard"],["пост","guard"],
-  ["повыш","promotion"],["сокращ","dictionary"],["словар","dictionary"]
- ];
- const hit=map.find(([word])=>q.includes(word));
- if(hit)show(hit[1]);
+// =========================================================
+// РАБОЧИЙ ПОИСК ПО ВСЕМУ САЙТУ
+// =========================================================
+function searchSections(query) {
+  if (!query.trim()) {
+    show('home');
+    return;
+  }
+
+  const q = query.toLowerCase().trim();
+  let bestMatch = null;
+  let bestScore = 0;
+
+  // Проверяем все секции
+  sections.forEach(section => {
+    const sectionId = section.dataset.section;
+    // Пропускаем главную
+    if (sectionId === 'home') return;
+
+    // Получаем весь текст секции (включая скрытые элементы)
+    const text = section.textContent.toLowerCase();
+    
+    // Проверяем наличие искомого слова
+    if (text.includes(q)) {
+      // Считаем количество вхождений
+      let count = 0;
+      let pos = text.indexOf(q);
+      while (pos !== -1) {
+        count++;
+        pos = text.indexOf(q, pos + 1);
+      }
+      // Приоритет: чем больше вхождений, тем лучше
+      if (count > bestScore) {
+        bestScore = count;
+        bestMatch = sectionId;
+      }
+    }
+  });
+
+  // Если нашли совпадение - переходим на страницу
+  if (bestMatch) {
+    show(bestMatch);
+    // Подсвечиваем найденное в заголовке секции
+    const sectionEl = document.querySelector(`[data-section="${bestMatch}"]`);
+    if (sectionEl) {
+      const heading = sectionEl.querySelector('h2');
+      if (heading) {
+        heading.style.transition = 'color 0.3s';
+        heading.style.color = '#b6a15b';
+        setTimeout(() => {
+          heading.style.color = '';
+        }, 1500);
+      }
+    }
+  } else {
+    // Если ничего не найдено - остаёмся на главной
+    show('home');
+    // Показываем уведомление
+    const notice = document.getElementById('homeNotice');
+    const originalText = notice.innerHTML;
+    notice.innerHTML = '🔍 По вашему запросу <strong>"' + query + '"</strong> ничего не найдено. Попробуйте изменить запрос.';
+    notice.style.borderColor = '#e8465b';
+    setTimeout(() => {
+      notice.innerHTML = originalText;
+      notice.style.borderColor = '';
+    }, 4000);
+  }
+}
+
+// Обработчик поиска
+document.getElementById('search').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    searchSections(this.value);
+  }
 });
+
+// Добавляем кнопку поиска (иконка лупы)
+const searchInput = document.getElementById('search');
+const topbar = document.querySelector('.topbar');
+
+// Создаём контейнер для поиска
+const searchContainer = document.createElement('div');
+searchContainer.style.position = 'relative';
+searchContainer.style.display = 'inline-flex';
+searchContainer.style.alignItems = 'center';
+
+// Оборачиваем инпут в контейнер
+searchInput.parentNode.insertBefore(searchContainer, searchInput);
+searchContainer.appendChild(searchInput);
+
+// Добавляем иконку поиска
+const searchIcon = document.createElement('span');
+searchIcon.textContent = '🔍';
+searchIcon.style.cssText = `
+  position: absolute;
+  right: 12px;
+  color: #4a5f4f;
+  font-size: 16px;
+  pointer-events: none;
+`;
+searchContainer.appendChild(searchIcon);
+
+// Добавляем стиль для инпута (отступ для иконки)
+searchInput.style.paddingRight = '36px';
 
 renderDepartments();
 renderRanks();
