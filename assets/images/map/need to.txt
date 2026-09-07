@@ -1,0 +1,15 @@
+KPP-1.png
+KPP-2.png
+V-1
+V-2
+V-3
+V-4
+V-5
+V-6
+V-7
+V-8
+sklad.png
+car.png
+medic.png
+gym.png
+plac.png
